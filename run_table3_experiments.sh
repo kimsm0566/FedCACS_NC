@@ -30,7 +30,7 @@ for index in "${!experiments[@]}"; do
        log_file="./save/log/${alg}_${dataset_name}_${num_users}_${shard_per_user}_epochs100.log"
 
         # 실행 명령어 설정 (필수 파라미터 추가 및 재설정)
-        command="nohup taskset -c 0-15 python -u main.py --alg ${alg} --frac 0.1 --local_bs 10 --lr 0.01 --epochs 100 --local_ep 10 --local_second_ep 5 --gpu 1 --multi_cats 1 ${experiment} > ${log_file} 2>&1 &"
+        command="nohup python -u main.py --alg ${alg} --frac 0.1 --local_bs 10 --lr 0.01 --epochs 100 --local_ep 10 --local_second_ep 5 --gpu 1 --multi_cats 1 ${experiment} > ${log_file} 2>&1 &"
     
         echo "Running command: $command"
         
