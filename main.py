@@ -277,9 +277,6 @@ if __name__ == '__main__':
     if args.alg == 'fedavg' or args.alg == 'prox':
         print('Average global accuracy final 10 rounds: {}'.format(accs10_glob))
     end = time.time()
-    print(end - start)
-    print(times)
-    print(accs)
     base_dir = './save/accs_' + args.alg + '_' + args.dataset + str(args.num_users) + '_' + str(
         args.shard_per_user) + '.csv'
     user_save_path = base_dir
