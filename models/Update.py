@@ -254,7 +254,7 @@ class LocalUpdateCACS_NC(object):
                     feat_t = net.get_features(images)
                     index_t = torch.arange(len(images)).cuda()
                     loss_nc = calculate_nc_loss(feat_t, index_t, lemniscate, self.args.temp, self.args.eta, self.args.local_bs)
-                    loss = 0.5 * loss + 0.5 * loss_nc  # 수정: 가중 합 적용
+                    loss = (1-self.args.nc) * loss + self.args.nc * loss_nc  # 수정: 가중 합 적용
                     lemniscate.update_weight(feat_t, index_t)
                 loss.backward()
                 optimizer.step()
