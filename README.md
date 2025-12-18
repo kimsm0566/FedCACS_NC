@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Local and Global Bilaterally Improvement in Federated Learning
 
 
